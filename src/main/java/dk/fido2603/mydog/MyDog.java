@@ -73,6 +73,7 @@ public class MyDog extends JavaPlugin {
     public String deadDogLevelString = ", and got to &4Level {level}&c";
     public String commandComehereString = "&6&l[{chatPrefix}] &r&6Come here! Good doggo, {dogNameColor}{dogName}&6!";
     public String tameLimitString = "&c&l[{chatPrefix}] &r&cTaming failed! Looks like you have reached your limit of dogs! You can maybe set some dead dogs free, or revive some?";
+    public String breedLimitString = "&c&l[{chatPrefix}] &r&7(breeding cancelled, at limit)";
     public String pettingString = "&6Who's a good doggo?! {dogNameColor}{dogName}&6 is!";
     public String pettingSplashString = "{dogNameColor}{dogName}&6 splashes water all over you!";
 

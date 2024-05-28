@@ -75,6 +75,26 @@ public class WolfMainListener implements Listener {
     }
 
     @EventHandler
+    public void onEntityEnterLoveModeEvent(EntityEnterLoveModeEvent event) {
+        if (event.getEntity().getType() != EntityType.WOLF) {
+            return;
+        }
+        Wolf wolf = (Wolf) event.getEntity();
+        if ((wolf.getOwner() instanceof Player)) {
+            // not sure if this is possible
+            return;
+        }
+
+        Player owner = (Player) wolf.getOwner();
+
+        if (!MyDog.getDogManager().canTameMoreDogs(owner)) {
+            owner.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.breedLimitString.replace("{chatPrefix}", plugin.getChatPrefix())));
+            event.setCancelled(true);
+            return;
+        }
+    }
+
+    @EventHandler
     public void onEntityDeathEvent(EntityDeathEvent event) {
         if (event.getEntity().getType() != EntityType.WOLF || !MyDog.getDogManager().isDog(event.getEntity().getUniqueId())) {
             return;
